@@ -1,2 +1,1 @@
-# WebCam-application-using-pyqt5-and-opencv
- 
+# WebCam application using pyqt5 and opencv
