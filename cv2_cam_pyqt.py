@@ -93,6 +93,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def showData(self, img):
         self.Ny, self.Nx, _ = img.shape
 
+        # 反轉顏色
+        img_new = np.zeros_like(img)
+        img_new[...,0] = img[...,2]
+        img_new[...,1] = img[...,1]
+        img_new[...,2] = img[...,0]
+        img = img_new
+
         # qimg = QtGui.QImage(img[:,:,0].copy().data, self.Nx, self.Ny, QtGui.QImage.Format_Indexed8)
         qimg = QtGui.QImage(img.data, self.Nx, self.Ny, QtGui.QImage.Format_RGB888)
         self.viewData.setScaledContents(True)
